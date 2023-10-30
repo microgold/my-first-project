@@ -1,2 +1,12 @@
-<h1>{{ title }}</h1>
-<p>The price of {{ stockSymbol }} is {{ price | currency:'USD' }}</p>
+<div class="container">
+  <h1>{{ title }}</h1>
+
+   <span class="form-group">
+  <label for="stocks">Choose a stock:</label>
+  <select id="stocks" [(ngModel)]="stockSymbol" (change)="onStockSelect(stockSymbol)">
+    <option *ngFor="let stock of stocks" [value]="stock">{{ stock }}</option>
+  </select>
+  </span> 
+  <p class="price-display">The price of {{ stockSymbol }} is {{ price | currency:'USD' }}</p>
+</div>
+
